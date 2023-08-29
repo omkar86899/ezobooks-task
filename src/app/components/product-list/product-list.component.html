@@ -1,0 +1,11 @@
+<div class="flex-container">
+  <mat-card *ngFor="let item of productList" class="box">
+    <div class="img-container">
+      <img mat-card-image [src]="item.url" loading="lazy" />
+    </div>
+    <mat-card-content>
+      <mat-card-title>{{ item.itemName }}</mat-card-title>
+      {{ item.itemPrice | currency }}
+    </mat-card-content>
+  </mat-card>
+</div>

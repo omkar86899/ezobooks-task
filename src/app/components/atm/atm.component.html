@@ -1,0 +1,59 @@
+<div style="display: flex; justify-content: center">
+  <div class="col-md-8" style="background-color: #eee">
+    <div class="jumbotron" [formGroup]="DepositForm">
+      <h2>ATM</h2>
+      <hr />
+      <h3>Current Available Denomination in Machine</h3>
+
+      <table class="table table-striped">
+        <tbody>
+          <tr *ngFor="let denomination of currencyDenominations">
+            <th>{{ denomination }}</th>
+            <td>{{ currentDeposits[denomination] }}</td>
+            <td>|</td>
+            <td style="width: 200px">
+              <input type="text" [formControlName]="denomination" />
+            </td>
+          </tr>
+          <tr>
+            <th>Total</th>
+            <td>
+              {{ Total }}
+            </td>
+            <td>|</td>
+            <td>
+              <button
+                class="btn btn-primary"
+                id="btn-deposit"
+                (click)="onDeposit()"
+              >
+                Deposit
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <hr />
+      <div class="input-group">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Enter amount for withdrawal"
+          [formControl]="withdrawAmountControl"
+        />
+        <span class="input-group-btn">
+          <button class="btn btn-success" type="button" (click)="onWithdraw()">
+            Withdraw!
+          </button>
+        </span>
+      </div>
+      <hr />
+      <h3>Log</h3>
+      <div *ngFor="let logInfo of logs">
+        <div class="alert" [ngClass]="'alert-' + logInfo.type">
+          {{ logInfo.summary }}<br /><small>{{ logInfo.dateTime }}</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

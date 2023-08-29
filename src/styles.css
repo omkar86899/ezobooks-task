@@ -1,1 +1,53 @@
 /* You can add global styles to this file, and also import other style files */
+html {
+  scroll-behavior: smooth;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.img-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.img-container img {
+  width: 100%;
+}
+
+.box {
+  width: 98%;
+  padding: 5px;
+  margin-top: 5px;
+  margin-bottom: 20px;
+}
+.box mat-card-content {
+  padding-top: 16px;
+}
+
+@media only screen and (min-width: 576px) {
+  .box {
+    width: 100%;
+    margin-top: 5px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .flex-container {
+    flex-wrap: wrap;
+  }
+  .box {
+    width: 45%;
+    margin-top: 5px;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .box {
+    width: 23%;
+  }
+}
